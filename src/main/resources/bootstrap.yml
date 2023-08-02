@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: dev
+  cloud:
+    azure:
+      appconfiguration:
+        stores[0]:
+          connection-string: ${APP_CONFIGURATION_CONNECTION_STRING:Endpoint=https://spring-app-configuration.azconfig.io;Id=z3HJ;Secret=DzbvX+Pd4YLwSvAn8LrlGwdaSvBfW4BLX6WWQY9sWEA=}
+        stores:
+          - endpoint: https://spring-app-configuration.azconfig.io
+        managed-identity:
+          client-id: 269fa0be-2b62-4831-9fe7-013b6c1946e4
