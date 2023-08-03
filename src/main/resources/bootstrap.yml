@@ -4,9 +4,5 @@ spring:
   cloud:
     azure:
       appconfiguration:
-        stores[0]:
-          connection-string: ${APP_CONFIGURATION_CONNECTION_STRING:}
         stores:
-          - endpoint: 
-        managed-identity:
-          client-id: 
+          - connection-string: ${CONFIG_STORE_CONNECTION_STRING}
