@@ -1,8 +1,18 @@
 spring:
-  profiles:
-    active: dev
-  cloud:
-    azure:
-      appconfiguration:
-        stores:
-          - connection-string: ${CONFIG_STORE_CONNECTION_STRING}
+    cloud:
+        azure:
+            appconfiguration:
+                stores:
+                -   connection-string: ''
+                    #endpoint: ''
+                    #managed-identity:
+                     #   client-id: ''
+                    monitoring:
+                        enabled: true
+                        refresh-interval: 5s
+                        triggers:
+                        -   key: sentinel
+                            label: dev
+                    selects:
+                    -   key-filter: /demo-app/
+                        label-filter: dev
