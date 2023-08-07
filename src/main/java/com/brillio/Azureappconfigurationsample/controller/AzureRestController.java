@@ -27,7 +27,7 @@ public class AzureRestController {
         return properties.getConfigMsg();
     }
 
-    @Scheduled(fixedDelay = 1000*2)
+    //@Scheduled(fixedDelay = 1000*2)
     public void printMsg(){
         System.out.println("fetched value is :"+properties.getConfigMsg());
     }
