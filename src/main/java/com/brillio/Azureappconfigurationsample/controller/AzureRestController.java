@@ -1,13 +1,10 @@
 package com.brillio.Azureappconfigurationsample.controller;
 
-import com.azure.spring.cloud.appconfiguration.config.AppConfigurationRefresh;
-import com.brillio.Azureappconfigurationsample.configuration.AppProperties;
+import com.brillio.Azureappconfigurationsample.configuration.DBConnection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,12 +18,21 @@ public class AzureRestController {
 //    public AzureRestController(AppProperties properties){
 //        this.properties=properties;
 //    }
+    @Autowired
+    private DBConnection connection;
+
     @Value("configMsg")
     private String msg;
+
 
     @GetMapping("/getmsg")
     public String getMsg(){
         return msg;
+    }
+
+    @GetMapping("/getmsg2")
+    public String getMsg2(){
+        return connection.username;
     }
 
     //@Scheduled(fixedDelay = 1000*2)
