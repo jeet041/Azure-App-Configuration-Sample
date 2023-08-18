@@ -6,11 +6,10 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties
 @RefreshScope
 public class DBConnection {
 
-    @Value("configMsg2")
+    @Value("${configMsg2}")
     public String username;
 
 
