@@ -32,6 +32,7 @@ public class AzureRestController {
 
     @GetMapping("/getmsg2")
     public String getMsg2(){
+        System.out.println("Msg from config2:"+connection.username);
         return connection.username;
     }
 
