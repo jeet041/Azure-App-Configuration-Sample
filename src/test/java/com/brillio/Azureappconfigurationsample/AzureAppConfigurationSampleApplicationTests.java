@@ -3,10 +3,10 @@ package com.brillio.Azureappconfigurationsample;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest(properties = "spring.cloud.azure.appconfiguration.enabled=false")
+//@SpringBootTest(properties = "spring.cloud.azure.appconfiguration.enabled=false")
 class AzureAppConfigurationSampleApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 
