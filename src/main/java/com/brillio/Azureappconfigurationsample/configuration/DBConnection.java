@@ -14,4 +14,7 @@ public class DBConnection {
     public String username;
 
 
+    public DBConnection(String username) {
+        this.username = username;
+    }
 }
