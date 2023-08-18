@@ -21,7 +21,7 @@ public class AzureRestController {
     @Autowired
     private DBConnection connection;
 
-    @Value("configMsg")
+    @Value("${configMsg}")
     private String msg;
 
 
