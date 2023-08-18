@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 //@EnableScheduling
-@EnableConfigurationProperties(AppProperties.class)
+//@EnableConfigurationProperties(AppProperties.class)
 public class AzureAppConfigurationSampleApplication {
 
 	public static void main(String[] args) {

@@ -3,7 +3,7 @@ spring:
         azure:
             appconfiguration:
                 stores:
-                -   connection-string: ''
+                -   connection-string: Endpoint=https://spring-app-configuration.azconfig.io;Id=z3HJ;Secret=DzbvX+Pd4YLwSvAn8LrlGwdaSvBfW4BLX6WWQY9sWEA=
                     #endpoint: ''
                     #managed-identity:
                      #   client-id: ''
