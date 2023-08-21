@@ -1,6 +1,7 @@
 package com.brillio.Azureappconfigurationsample.configuration;
 
 import com.zaxxer.hikari.HikariConfig;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -41,6 +42,7 @@ public class DBDataSource {
 
 
     @Bean(name="HikariCP")
+    @ConfigurationProperties(prefix = "spring.datasource.hikari")
     public HikariConfig hikariConfig(){
         HikariConfig hikariConfig = new HikariConfig();
         return hikariConfig;
