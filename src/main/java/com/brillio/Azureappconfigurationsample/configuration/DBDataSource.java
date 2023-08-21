@@ -21,10 +21,10 @@ public class DBDataSource {
 //    private String jdbcUrl;
 
 
-    private DataSource ds;
+    //private DataSource ds;
     @Bean
     public DataSource dataSource(@Qualifier("HikariCP") HikariConfig hikariConfig) {
-
+        DataSource ds=null;
         hikariConfig.setJdbcUrl( "jdbc:h2:mem:dcbapp" );
         hikariConfig.setUsername( "sa" );
         hikariConfig.setPassword( "password" );
@@ -36,7 +36,7 @@ public class DBDataSource {
     }
 
     @Bean
-    public Connection getConnection() throws SQLException {
+    public Connection getConnection(DataSource ds) throws SQLException {
         return ds.getConnection();
     }
 
