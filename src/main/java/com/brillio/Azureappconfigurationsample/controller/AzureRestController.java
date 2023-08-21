@@ -1,11 +1,14 @@
 package com.brillio.Azureappconfigurationsample.controller;
 
-import com.brillio.Azureappconfigurationsample.configuration.DBConnection;
+import com.brillio.Azureappconfigurationsample.model.Department;
+import com.brillio.Azureappconfigurationsample.service.DepartmentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RefreshScope
@@ -18,10 +21,8 @@ public class AzureRestController {
 //    public AzureRestController(AppProperties properties){
 //        this.properties=properties;
 //    }
-    @Autowired
-    private DBConnection connection;
 
-    @Value("${configMsg}")
+    @Value("${configMsg:configmsg}")
     private String msg;
 
 
@@ -30,14 +31,49 @@ public class AzureRestController {
         return msg;
     }
 
-    @GetMapping("/getmsg2")
-    public String getMsg2(){
-        System.out.println("Msg from config2:"+connection.username);
-        return connection.username;
+//    @GetMapping("/getmsg2")
+//    public String getMsg2(){
+//        System.out.println("Msg from config2:"+connection.username);
+//        return connection.username;
+//    }
+
+
+    @Autowired
+    private DepartmentService departmentService;
+
+    // Save operation
+    @PostMapping("/departments")
+    public Department saveDepartment(
+            @Valid @RequestBody Department department)
+    {
+        return departmentService.saveDepartment(department);
     }
 
-    //@Scheduled(fixedDelay = 1000*2)
-//    public void printMsg(){
-//        System.out.println("fetched value is :"+properties.getConfigMsg());
-//    }
+    // Read operation
+    @GetMapping("/departments")
+    public List<Department> fetchDepartmentList()
+    {
+        return departmentService.fetchDepartmentList();
+    }
+
+    // Update operation
+    @PutMapping("/departments/{id}")
+    public Department
+    updateDepartment(@RequestBody Department department,
+                     @PathVariable("id") Long departmentId)
+    {
+        return departmentService.updateDepartment(
+                department, departmentId);
+    }
+
+    // Delete operation
+    @DeleteMapping("/departments/{id}")
+    public String deleteDepartmentById(@PathVariable("id")
+                                               Long departmentId)
+    {
+        departmentService.deleteDepartmentById(
+                departmentId);
+        return "Deleted Successfully";
+    }
+
 }
