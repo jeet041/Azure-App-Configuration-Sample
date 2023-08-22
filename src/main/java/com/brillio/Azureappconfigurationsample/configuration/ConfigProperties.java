@@ -2,15 +2,15 @@ package com.brillio.Azureappconfigurationsample.configuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties
+@ConfigurationProperties(prefix = "app")
 public class ConfigProperties {
     public String getConfigMsg() {
-        return configMsg3;
+        return Msg3;
     }
 
-    public void setConfigMsg(String configMsg) {
-        this.configMsg3 = configMsg;
+    public void setConfigMsg(String Msg) {
+        this.Msg3 = Msg;
     }
 
-    private String configMsg3;
+    private String Msg3;
 }
