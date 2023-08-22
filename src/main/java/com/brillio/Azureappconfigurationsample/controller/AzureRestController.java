@@ -3,6 +3,7 @@ package com.brillio.Azureappconfigurationsample.controller;
 import com.brillio.Azureappconfigurationsample.configuration.AppProperties;
 import com.brillio.Azureappconfigurationsample.configuration.ConfigProperties;
 import com.brillio.Azureappconfigurationsample.model.Department;
+import com.brillio.Azureappconfigurationsample.service.DataService;
 import com.brillio.Azureappconfigurationsample.service.DepartmentService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class AzureRestController {
     private final AppProperties properties;
 
     private final ConfigProperties configProperties;
+
+    @Autowired
+    private DataService dataService;
 
     public AzureRestController(AppProperties properties,ConfigProperties configProperties){
         this.properties=properties;
@@ -46,6 +50,11 @@ public class AzureRestController {
     public String getMsg3(){
         System.out.println("Msg from config3:"+configProperties.getConfigMsg());
         return configProperties.getConfigMsg();
+    }
+    @GetMapping("/getmsg4")
+    public String getMsg4(){
+        System.out.println("Msg from config2:"+dataService.getMsg());
+        return dataService.getMsg();
     }
 
     @Autowired
