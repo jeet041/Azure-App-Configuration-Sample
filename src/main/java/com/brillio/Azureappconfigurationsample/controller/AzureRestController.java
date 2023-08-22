@@ -1,5 +1,6 @@
 package com.brillio.Azureappconfigurationsample.controller;
 
+import com.brillio.Azureappconfigurationsample.configuration.AppProperties;
 import com.brillio.Azureappconfigurationsample.model.Department;
 import com.brillio.Azureappconfigurationsample.service.DepartmentService;
 import jakarta.validation.Valid;
@@ -16,11 +17,11 @@ public class AzureRestController {
 //    @Autowired(required = false)
 //    private AppConfigurationRefresh refresh;
 
-//    private final AppProperties properties;
-//
-//    public AzureRestController(AppProperties properties){
-//        this.properties=properties;
-//    }
+    private final AppProperties properties;
+
+    public AzureRestController(AppProperties properties){
+        this.properties=properties;
+    }
 
     @Value("${configMsg:configmsg}")
     private String msg;
@@ -31,11 +32,11 @@ public class AzureRestController {
         return msg;
     }
 
-//    @GetMapping("/getmsg2")
-//    public String getMsg2(){
-//        System.out.println("Msg from config2:"+connection.username);
-//        return connection.username;
-//    }
+    @GetMapping("/getmsg2")
+    public String getMsg2(){
+        System.out.println("Msg from config2:"+properties.getConfigMsg());
+        return properties.getConfigMsg();
+    }
 
 
     @Autowired
