@@ -1,7 +1,6 @@
 package com.brillio.Azureappconfigurationsample;
 
 import com.brillio.Azureappconfigurationsample.configuration.AppProperties;
-import com.brillio.Azureappconfigurationsample.configuration.DBDataSource;
 import com.zaxxer.hikari.HikariConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
