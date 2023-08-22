@@ -10,7 +10,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 @SpringBootApplication
 //@EnableScheduling
-@EnableConfigurationProperties({AppProperties.class,ConfigProperties.class})
 public class AzureAppConfigurationSampleApplication {
 
 	public static void main(String[] args) {
