@@ -5,12 +5,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties
 public class ConfigProperties {
     public String getConfigMsg() {
-        return configMsg2;
+        return configMsg3;
     }
 
     public void setConfigMsg(String configMsg) {
-        this.configMsg2 = configMsg;
+        this.configMsg3 = configMsg;
     }
 
-    private String configMsg2;
+    private String configMsg3;
 }
