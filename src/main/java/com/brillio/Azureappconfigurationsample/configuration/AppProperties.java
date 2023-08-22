@@ -3,7 +3,7 @@ package com.brillio.Azureappconfigurationsample.configuration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-@ConfigurationProperties
+@ConfigurationProperties(prefix = "app")
 public class AppProperties {
     public String getConfigMsg() {
         return configMsg;

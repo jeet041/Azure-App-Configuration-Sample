@@ -44,7 +44,7 @@ public class AzureRestController {
 
     @GetMapping("/getmsg3")
     public String getMsg3(){
-        System.out.println("Msg from config2:"+configProperties.getConfigMsg());
+        System.out.println("Msg from config3:"+configProperties.getConfigMsg());
         return configProperties.getConfigMsg();
     }
 
