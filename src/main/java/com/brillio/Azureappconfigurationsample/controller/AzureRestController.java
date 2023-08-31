@@ -6,16 +6,20 @@ import com.brillio.Azureappconfigurationsample.model.Department;
 import com.brillio.Azureappconfigurationsample.service.DataService;
 import com.brillio.Azureappconfigurationsample.service.DepartmentService;
 import jakarta.validation.Valid;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 @RefreshScope
 public class AzureRestController {
+    Logger logger = (Logger) LoggerFactory.getLogger(AzureRestController.class);
+
 //    @Autowired(required = false)
 //    private AppConfigurationRefresh refresh;
 
@@ -42,18 +46,18 @@ public class AzureRestController {
 
     @GetMapping("/getmsg2")
     public String getMsg2(){
-        System.out.println("Msg from config2:"+properties.getConfigMsg());
+        logger.info("Msg from config2:"+properties.getConfigMsg());
         return properties.getConfigMsg();
     }
 
     @GetMapping("/getmsg3")
     public String getMsg3(){
-        System.out.println("Msg from config3:"+configProperties.getConfigMsg());
+        logger.info("Msg from config3:"+configProperties.getConfigMsg());
         return configProperties.getConfigMsg();
     }
     @GetMapping("/getmsg4")
     public String getMsg4(){
-        System.out.println("Msg from config2:"+dataService.getMsg());
+        logger.info("Msg from config2:"+dataService.getMsg());
         return dataService.getMsg();
     }
 
